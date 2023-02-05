@@ -1,0 +1,21 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "model",
+            "cpf": "123.456.789-01",
+            "siape": "1234567",
+            "dateOfBirth": "01/01/0001",
+            "email": "model@model.com",
+            "city": "City model",
+            "permissionToLeaveEarly": true,
+            "qrCode": "model QR code",
+            "logs": [
+                {
+                    "id": "log model",
+                    "createdAt": "05/02/23 13:25"
+                }
+            ]
+        }
+    ]
+}
