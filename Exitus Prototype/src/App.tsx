@@ -5,7 +5,8 @@ import { Outlet } from "react-router-dom"
 import "./styles/app.sass"
 
 //COMPONENTS
-import Navbar from "./components/navbar/Navbar"
+import Navbar from "./components/layout/navbar/Navbar"
+import Footer from "./components/layout/footer/Footer"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Outlet />
+      <Footer />
     </div>
   )
 }

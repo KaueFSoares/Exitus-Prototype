@@ -1,9 +1,11 @@
 import React from 'react'
 
+import "./home.sass"
+
 function Home() {
 
   return (
-    <div>Home</div>
+    <div id='home-container'>Home</div>
   )
 }
 

@@ -1,0 +1,51 @@
+@use "../../styles/variables"
+@use "../../styles/mixings"
+
+#registerpage-container
+    @include mixings.center-center-row
+    min-height: variables.$min-page-height
+    width: 100%
+
+    #register-box
+        @include mixings.center-between-column
+        justify-content: space-around
+        width: 40%
+        height: 40vh
+        background-color: variables.$light-green
+        border-radius: variables.$extra-large-border-radius
+        padding: 3rem
+
+        #input-box
+            @include mixings.center-center-row
+            height: 40%
+            width: 100%
+
+        #change-register-mode-box
+            @include mixings.center-between-row
+            width: 50%
+
+            button
+                padding: .8rem 1.2rem
+                border-radius: variables.$medium-border-radius
+                border: none
+                background-color: variables.$white
+                cursor: pointer
+                trasition: all 1000ms ease
+                opacity: .85
+
+                p
+                    font-weight: bold
+                    color: variables.$light-green
+                    font-size: 1.5rem
+                    border-bottom: 4px solid variables.$white
+                    
+
+                .underline
+                    border-radius: variables.$small-border-radius
+                    border-bottom: 4px solid variables.$light-green
+
+                &:hover
+                    opacity: 1
+
+                &:focus
+                    outline: none

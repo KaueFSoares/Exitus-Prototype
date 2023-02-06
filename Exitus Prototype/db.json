@@ -1,21 +1,44 @@
 {
-    "users": [
+  "person": [
+    {
+      "id": "11fccc62-9aa9-4d22-b414-e634e3de3dec",
+      "name": "model",
+      "cpf": "123.456.789-01",
+      "siape": "1234567",
+      "dateOfBirth": {
+        "day": 6,
+        "month": 2,
+        "year": 2005
+      },
+      "email": "model@model.com",
+      "city": "City model",
+      "permissionToLeaveEarly": true,
+      "permissionToEnterOnOtherShift": true,
+      "onSchool": false,
+      "shift": "morning",
+      "qrCode": "model QR code",
+      "logs": [
         {
-            "id": 1,
-            "name": "model",
-            "cpf": "123.456.789-01",
-            "siape": "1234567",
-            "dateOfBirth": "01/01/0001",
-            "email": "model@model.com",
-            "city": "City model",
-            "permissionToLeaveEarly": true,
-            "qrCode": "model QR code",
-            "logs": [
-                {
-                    "id": "log model",
-                    "createdAt": "05/02/23 13:25"
-                }
-            ]
+          "id": "log model",
+          "createdAt": {
+            "day": 1,
+            "month": 1,
+            "year": 1012,
+            "hour": 12,
+            "min": 12
+          }
+        },
+        {
+          "id": "478ac487-c7df-4911-8170-744f364e3af8",
+          "createdAt": {
+            "day": 5,
+            "month": 2,
+            "year": 2023,
+            "hour": 22,
+            "min": 32
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

@@ -1,0 +1,26 @@
+@use './variables'
+
+/* THE FOLLOWING MIXINGS HAS THE NAME PATTERN ON THE ORDER: ALIGN-ITENS - JUSTIFY-CONTENT - FLEX-DIRECTION */
+@mixin center-center-row
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+
+@mixin center-between-row
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-direction: row
+
+@mixin center-between-column
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-direction: column
+
+@mixin center-center-column
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column

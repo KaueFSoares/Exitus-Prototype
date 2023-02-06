@@ -1,0 +1,20 @@
+@use "../../../styles/variables"
+@use "../../../styles/mixings"
+
+#footer-container
+    @include mixings.center-center-column
+    height: 10vh
+    width: 100%
+    background-image: variables.$background-gradient
+    padding: .3rem 2rem
+
+    p
+        color: variables.$white
+        font-weight: bold
+        font-size: 1.3rem
+
+    #github-icon-link
+
+        #github-icon
+            color: variables.$white
+            font-size: 1.6rem
