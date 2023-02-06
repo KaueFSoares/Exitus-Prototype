@@ -85,8 +85,8 @@ function CodeRegister() {
 				})
 					.then((resp) => resp.json())
 					.then(() => {
-						
-						//AQUI FEZ UP PRO DB
+
+						window.location.reload()
 
 					})
 					.catch(err => {
@@ -103,6 +103,37 @@ function CodeRegister() {
 			//apply the rules for entering
 
 			if (canEnter(data) === true) {
+
+				data.onSchool = !data.onSchool
+
+				let localLog: ILog = {
+					id: uuidv4(), createdAt: {
+						day: systemDate.getDate(),
+						month: systemDate.getMonth() + 1,
+						year: systemDate.getFullYear(),
+						hour: systemDate.getHours(),
+						min: systemDate.getMinutes()
+					}
+				}
+
+				data.logs.push(localLog)
+
+				fetch(`http://localhost:5001/person/${code}`, {
+					method: "PATCH",
+					headers: {
+						"Content-type": "application/json",
+					},
+					body: JSON.stringify(data)
+				})
+					.then((resp) => resp.json())
+					.then(() => {
+
+						//AQUI FEZ UP PRO DB
+
+					})
+					.catch(err => {
+						console.log(err)
+					})
 
 			} else {
 				//CAN'T ENTER
