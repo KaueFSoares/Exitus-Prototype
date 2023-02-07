@@ -6,9 +6,9 @@
       "cpf": "123.456.789-01",
       "siape": "1234567",
       "dateOfBirth": {
-        "day": 8,
-        "month": 2,
-        "year": 2005
+        "day": 22,
+        "month": 6,
+        "year": 2007
       },
       "email": "model@model.com",
       "city": "City model",
@@ -26,6 +26,66 @@
             "year": 1012,
             "hour": 12,
             "min": 12
+          }
+        },
+        {
+          "id": "7d1cfd10-c882-4ea7-82a9-78205923e76a",
+          "createdAt": {
+            "day": 7,
+            "month": 2,
+            "year": 2023,
+            "hour": 19,
+            "min": 35
+          }
+        },
+        {
+          "id": "b6bfed50-7221-4b39-b849-344e56cbff7f",
+          "createdAt": {
+            "day": 7,
+            "month": 2,
+            "year": 2023,
+            "hour": 19,
+            "min": 36
+          }
+        },
+        {
+          "id": "1f65decf-8547-4704-ae6b-43e7900dcee9",
+          "createdAt": {
+            "day": 7,
+            "month": 2,
+            "year": 2023,
+            "hour": 19,
+            "min": 37
+          }
+        },
+        {
+          "id": "7c1bfa3f-b9a2-4190-92ab-029609a49134",
+          "createdAt": {
+            "day": 7,
+            "month": 2,
+            "year": 2023,
+            "hour": 19,
+            "min": 37
+          }
+        },
+        {
+          "id": "9ee9743f-ece9-4398-8913-2109f6fdccdb",
+          "createdAt": {
+            "day": 7,
+            "month": 2,
+            "year": 2023,
+            "hour": 19,
+            "min": 40
+          }
+        },
+        {
+          "id": "59a0f31c-798f-4d69-90d9-0eb56e2e171c",
+          "createdAt": {
+            "day": 7,
+            "month": 2,
+            "year": 2023,
+            "hour": 19,
+            "min": 40
           }
         }
       ]

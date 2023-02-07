@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { v4 as uuidv4 } from "uuid"
 
-import { ILog, IPerson, IOnChangeData, TDate, TDateForAge, TDateForLeave } from "../../../types/types"
+import { ILog, IPerson, TDateForAge, TDateForLeave } from "../../../types/types"
+
+import { checkAge } from "../../../context/functions/RegisterFunctions"
 
 import "./coderegister.sass"
 
@@ -43,7 +45,7 @@ function CodeRegister() {
 
 	//Getting the value from the input whenever it changes using the on change on the input element
 	const [code, setCode] = useState<string>("null")
-	//-----------------------------------------//
+	//-----------------------------------------------------------------------------------//
 
 
 
@@ -137,7 +139,6 @@ function CodeRegister() {
 						.then((resp) => resp.json())
 						.then(() => {
 
-
 							reloadPage()
 
 						})
@@ -195,7 +196,7 @@ function CodeRegister() {
 				return true
 			} else {
 
-				if (checkAge(data.dateOfBirth) === true) {
+				if (checkAge(data.dateOfBirth, systemDate) === true) {
 					setMessage("Exit approved!")
 					setMessageType("success")
 					return true
@@ -222,7 +223,7 @@ function CodeRegister() {
 				return true
 			} else {
 
-				if (checkAge(data.dateOfBirth) === true) {
+				if (checkAge(data.dateOfBirth, systemDate) === true) {
 					setMessage("Exit approved!")
 					setMessageType("success")
 					return true
@@ -255,7 +256,7 @@ function CodeRegister() {
 				return true
 			} else {
 
-				if (checkAge(data.dateOfBirth) === true) {
+				if (checkAge(data.dateOfBirth, systemDate) === true) {
 					setMessage("Exit approved!")
 					setMessageType("success")
 					return true
@@ -361,32 +362,6 @@ function CodeRegister() {
 
 		}
 
-	}
-	//-----------------------------------------------------------------------------------//
-
-
-
-	//Function for the the person age - returns true for > 18 year and false for < 18 year
-	function checkAge(dateOfBirth: TDateForAge) {
-		let nowDate: TDateForAge = {
-			day: systemDate.getDate(),
-			month: systemDate.getMonth() + 1,
-			year: systemDate.getFullYear()
-		}
-
-		if ((nowDate.year - dateOfBirth.year) < 18) {
-			return false
-		} else if ((nowDate.year - dateOfBirth.year) > 18) {
-			return true
-		} else if ((nowDate.month - dateOfBirth.month) > 0) {
-			return true
-		} else if ((nowDate.month - dateOfBirth.month) < 0) {
-			return false
-		} else if ((nowDate.day - dateOfBirth.day) >= 0) {
-			return true
-		} else {
-			return false
-		}
 	}
 	//-----------------------------------------------------------------------------------//
 
