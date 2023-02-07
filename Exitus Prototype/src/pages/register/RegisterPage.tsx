@@ -6,7 +6,7 @@ import CpfRegister from '../../components/other/CpfRegister/CpfRegister'
 
 function RegisterPage() {
 
-  const [registerType, setRegisterType] = useState<"code" | "cpf">("cpf")
+  const [registerType, setRegisterType] = useState<"code" | "cpf">("code")
 
   function changeRegisterType(type: "code" | "cpf") {
     setRegisterType(type)

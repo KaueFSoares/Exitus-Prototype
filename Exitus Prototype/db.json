@@ -14,7 +14,7 @@
       "city": "City model",
       "permissionToLeaveEarly": false,
       "permissionToEnterOnOtherShift": true,
-      "onSchool": true,
+      "onSchool": false,
       "shift": "morning",
       "qrCode": "model QR code",
       "logs": [
@@ -86,6 +86,16 @@
             "year": 2023,
             "hour": 19,
             "min": 40
+          }
+        },
+        {
+          "id": "855fd624-4842-4945-8b22-07fa184a008c",
+          "createdAt": {
+            "day": 7,
+            "month": 2,
+            "year": 2023,
+            "hour": 19,
+            "min": 49
           }
         }
       ]
