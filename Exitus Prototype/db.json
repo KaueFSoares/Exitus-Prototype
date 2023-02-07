@@ -6,15 +6,15 @@
       "cpf": "123.456.789-01",
       "siape": "1234567",
       "dateOfBirth": {
-        "day": 6,
+        "day": 8,
         "month": 2,
         "year": 2005
       },
       "email": "model@model.com",
       "city": "City model",
-      "permissionToLeaveEarly": true,
+      "permissionToLeaveEarly": false,
       "permissionToEnterOnOtherShift": true,
-      "onSchool": false,
+      "onSchool": true,
       "shift": "morning",
       "qrCode": "model QR code",
       "logs": [
@@ -26,26 +26,6 @@
             "year": 1012,
             "hour": 12,
             "min": 12
-          }
-        },
-        {
-          "id": "cf5573ef-ae66-4157-bdb4-47212fa18277",
-          "createdAt": {
-            "day": 5,
-            "month": 2,
-            "year": 2023,
-            "hour": 22,
-            "min": 41
-          }
-        },
-        {
-          "id": "97bab21c-d55d-4d9d-9587-3121df6cc748",
-          "createdAt": {
-            "day": 5,
-            "month": 2,
-            "year": 2023,
-            "hour": 22,
-            "min": 41
           }
         }
       ]

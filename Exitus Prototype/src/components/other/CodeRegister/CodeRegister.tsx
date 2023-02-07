@@ -7,6 +7,13 @@ import "./coderegister.sass"
 
 function CodeRegister() {
 
+	//Global variabel to storage the message and message type
+	const [message, setMessage] = useState<string>("")
+	const [messageType, setMessageType] = useState<"success" | "fail">("success")
+	//-----------------------------------------------------------------------------------//
+
+
+
 	//Global date variable for the functions
 	var firstDate: Date = new Date()
 	const [systemDate, setSystemDate] = useState<Date>(firstDate)
@@ -54,89 +61,94 @@ function CodeRegister() {
 
 	//Register function
 	async function register() {
-		var data: IPerson = await loadData(code)
+		var data: IPerson | undefined = await loadData(code)
 
-		if (data.onSchool === true) {
+		if (data) {
 
-			//apply the rules for leaving
+			if (data.onSchool === true) {
 
-			if (canLeave(data) === true) {
+				//apply the rules for leaving
 
-				data.onSchool = !data.onSchool
+				if (canLeave(data) === true) {
 
-				let localLog: ILog = {
-					id: uuidv4(), createdAt: {
-						day: systemDate.getDate(),
-						month: systemDate.getMonth() + 1,
-						year: systemDate.getFullYear(),
-						hour: systemDate.getHours(),
-						min: systemDate.getMinutes()
+					data.onSchool = !data.onSchool
+
+					let localLog: ILog = {
+						id: uuidv4(), createdAt: {
+							day: systemDate.getDate(),
+							month: systemDate.getMonth() + 1,
+							year: systemDate.getFullYear(),
+							hour: systemDate.getHours(),
+							min: systemDate.getMinutes()
+						}
 					}
+
+					data.logs.push(localLog)
+
+					fetch(`http://localhost:5001/person/${code}`, {
+						method: "PATCH",
+						headers: {
+							"Content-type": "application/json",
+						},
+						body: JSON.stringify(data)
+					})
+						.then((resp) => resp.json())
+						.then(() => {
+
+							reloadPage()
+
+						})
+						.catch(err => {
+							setMessage(`Exit denied due to: ${err}`)
+							setMessageType("fail")
+							reloadPage()
+						})
+
 				}
 
-				data.logs.push(localLog)
-
-				fetch(`http://localhost:5001/person/${code}`, {
-					method: "PATCH",
-					headers: {
-						"Content-type": "application/json",
-					},
-					body: JSON.stringify(data)
-				})
-					.then((resp) => resp.json())
-					.then(() => {
-
-						window.location.reload()
-
-					})
-					.catch(err => {
-						console.log(err)
-					})
 
 			} else {
-				//CAN'T LEAVE
-			}
 
+				//apply the rules for entering
 
-		} else {
+				if (canEnter(data) === true) {
 
-			//apply the rules for entering
+					data.onSchool = !data.onSchool
 
-			if (canEnter(data) === true) {
-
-				data.onSchool = !data.onSchool
-
-				let localLog: ILog = {
-					id: uuidv4(), createdAt: {
-						day: systemDate.getDate(),
-						month: systemDate.getMonth() + 1,
-						year: systemDate.getFullYear(),
-						hour: systemDate.getHours(),
-						min: systemDate.getMinutes()
+					let localLog: ILog = {
+						id: uuidv4(), createdAt: {
+							day: systemDate.getDate(),
+							month: systemDate.getMonth() + 1,
+							year: systemDate.getFullYear(),
+							hour: systemDate.getHours(),
+							min: systemDate.getMinutes()
+						}
 					}
+
+					data.logs.push(localLog)
+
+					fetch(`http://localhost:5001/person/${code}`, {
+						method: "PATCH",
+						headers: {
+							"Content-type": "application/json",
+						},
+						body: JSON.stringify(data)
+					})
+						.then((resp) => resp.json())
+						.then(() => {
+
+
+							reloadPage()
+
+						})
+						.catch(err => {
+							setMessage(`Exit denied due to: ${err}`)
+							setMessageType("fail")
+							reloadPage()
+						})
+
 				}
 
-				data.logs.push(localLog)
-
-				fetch(`http://localhost:5001/person/${code}`, {
-					method: "PATCH",
-					headers: {
-						"Content-type": "application/json",
-					},
-					body: JSON.stringify(data)
-				})
-					.then((resp) => resp.json())
-					.then(() => {
-
-						//AQUI FEZ UP PRO DB
-
-					})
-					.catch(err => {
-						console.log(err)
-					})
-
-			} else {
-				//CAN'T ENTER
 			}
 
 		}
@@ -151,7 +163,13 @@ function CodeRegister() {
 		const res = await fetch(`http://localhost:5001/person/${id}`)
 		const data: IPerson = await res.json()
 
-		return data
+		if (data.id) {
+			return data
+		} else {
+			setMessage(`Exit denied due to: problem on reading the code or invalid id!`)
+			setMessageType("fail")
+			reloadPage()
+		}
 	}
 	//-----------------------------------------------------------------------------------//
 
@@ -168,30 +186,54 @@ function CodeRegister() {
 		if (data.shift === "morning") {
 
 			if (nowDate.hour > 12) {
+				setMessage("Exit approved!")
+				setMessageType("success")
 				return true
 			} else if (nowDate.hour === 12 && nowDate.min >= 15) {
+				setMessage("Exit approved!")
+				setMessageType("success")
 				return true
 			} else {
 
-				if (data.permissionToLeaveEarly === true || checkAge(data.dateOfBirth) === true) {
+				if (checkAge(data.dateOfBirth) === true) {
+					setMessage("Exit approved!")
+					setMessageType("success")
+					return true
+				} else if (data.permissionToLeaveEarly === true) {
+					setMessage("Exit approved!")
+					setMessageType("success")
 					return true
 				} else {
-					return false
+					setMessage("Exit denied due to it is not 12:15 and you have no permission to leave earlier!")
+					setMessageType("fail")
+					reloadPage()
 				}
 			}
 
 		} else if (data.shift === "afternoon") {
 
 			if (nowDate.hour > 18) {
+				setMessage("Exit approved!")
+				setMessageType("success")
 				return true
 			} else if (nowDate.hour === 18 && nowDate.min >= 15) {
+				setMessage("Exit approved!")
+				setMessageType("success")
 				return true
 			} else {
 
-				if (data.permissionToLeaveEarly === true || checkAge(data.dateOfBirth) === true) {
+				if (checkAge(data.dateOfBirth) === true) {
+					setMessage("Exit approved!")
+					setMessageType("success")
+					return true
+				} else if (data.permissionToLeaveEarly === true) {
+					setMessage("Exit approved!")
+					setMessageType("success")
 					return true
 				} else {
-					return false
+					setMessage("Exit denied due to it is not 12:15 and you have no permission to leave earlier!")
+					setMessageType("fail")
+					reloadPage()
 				}
 			}
 
@@ -204,15 +246,27 @@ function CodeRegister() {
 			//--------------------------------------------------------------//
 
 			if (nowDate.hour > 18) {
+				setMessage("Exit approved!")
+				setMessageType("success")
 				return true
 			} else if (nowDate.hour === 18 && nowDate.min >= 15) {
+				setMessage("Exit approved!")
+				setMessageType("success")
 				return true
 			} else {
 
-				if (data.permissionToLeaveEarly === true || checkAge(data.dateOfBirth) === true) {
+				if (checkAge(data.dateOfBirth) === true) {
+					setMessage("Exit approved!")
+					setMessageType("success")
+					return true
+				} else if (data.permissionToLeaveEarly === true) {
+					setMessage("Exit approved!")
+					setMessageType("success")
 					return true
 				} else {
-					return false
+					setMessage("Exit denied due to it is not 12:15 and you have no permission to leave earlier!")
+					setMessageType("fail")
+					reloadPage()
 				}
 			}
 
@@ -233,30 +287,46 @@ function CodeRegister() {
 		if (data.shift === "morning") {
 
 			if (nowDate.hour > 6) {
+				setMessage("Acess approved!")
+				setMessageType("success")
 				return true
 			} else if (nowDate.hour === 6 && nowDate.min >= 30) {
+				setMessage("Acess approved!")
+				setMessageType("success")
 				return true
 			} else {
 
 				if (data.permissionToEnterOnOtherShift === true) {
+					setMessage("Acess approved!")
+					setMessageType("success")
 					return true
 				} else {
-					return false
+					setMessage("Acess denied due tue it is not your shift!")
+					setMessageType("fail")
+					reloadPage()
 				}
 			}
 
 		} else if (data.shift === "afternoon") {
 
 			if (nowDate.hour > 12) {
+				setMessage("Acess approved!")
+				setMessageType("success")
 				return true
 			} else if (nowDate.hour === 12 && nowDate.min >= 30) {
+				setMessage("Acess approved!")
+				setMessageType("success")
 				return true
 			} else {
 
 				if (data.permissionToEnterOnOtherShift === true) {
+					setMessage("Acess approved!")
+					setMessageType("success")
 					return true
 				} else {
-					return false
+					setMessage("Acess denied due tue it is not your shift!")
+					setMessageType("fail")
+					reloadPage()
 				}
 			}
 
@@ -269,15 +339,23 @@ function CodeRegister() {
 			//--------------------------------------------------------------//
 
 			if (nowDate.hour > 18) {
+				setMessage("Acess approved!")
+				setMessageType("success")
 				return true
 			} else if (nowDate.hour === 18 && nowDate.min >= 30) {
+				setMessage("Acess approved!")
+				setMessageType("success")
 				return true
 			} else {
 
 				if (data.permissionToEnterOnOtherShift === true) {
+					setMessage("Acess approved!")
+					setMessageType("success")
 					return true
 				} else {
-					return false
+					setMessage("Acess denied due tue it is not your shift!")
+					setMessageType("fail")
+					reloadPage()
 				}
 			}
 
@@ -310,19 +388,45 @@ function CodeRegister() {
 			return false
 		}
 	}
-	//-----------------------------------------//
+	//-----------------------------------------------------------------------------------//
+
+
+
+	//Function to show the result message and reload the page
+	const [showResultMessage, setShowResulteMessage] = useState<boolean>(false)
+	function reloadPage() {
+
+		setShowResulteMessage(true)
+
+		setTimeout(() => {
+			window.location.reload()
+		}, 5000)
+
+	}
+	//-----------------------------------------------------------------------------------//
+
+
+
 
 	return (
-		<input
-			type='text'
-			id='code-input'
-			maxLength={36}
-			placeholder='Scan the QR code'
-			ref={inputRef}
-			onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-				setCode(e.target.value)
-			}}
-		/>
+		<>
+			{showResultMessage ? (
+				<div className={`result-box ${["type-" + messageType]}`}>
+					<p>{message}</p>
+				</div>
+			) : (
+				<input
+					type='text'
+					id='code-input'
+					maxLength={36}
+					placeholder='Scan the QR code'
+					ref={inputRef}
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+						setCode(e.target.value)
+					}}
+				/>
+			)}
+		</>
 	)
 }
 
