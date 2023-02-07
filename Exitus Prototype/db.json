@@ -28,51 +28,7 @@
             "hour": 12,
             "min": 12
           }
-        },
-        {
-          "id": "bec26895-ee3e-4f0e-b1c1-ed8d96a4c015",
-          "type": "enter",
-          "createdAt": {
-            "day": 7,
-            "month": 2,
-            "year": 2023,
-            "hour": 19,
-            "min": 57
-          }
-        },
-        {
-          "id": "a446aa8d-4401-4d61-81b8-c4ecd8ec176e",
-          "type": "leave",
-          "createdAt": {
-            "day": 7,
-            "month": 2,
-            "year": 2023,
-            "hour": 19,
-            "min": 57
-          }
-        },
-        {
-          "id": "77593f44-2bfb-415a-ac6f-c08b93eaf99c",
-          "type": "enter",
-          "createdAt": {
-            "day": 7,
-            "month": 2,
-            "year": 2023,
-            "hour": 19,
-            "min": 57
-          }
-        },
-        {
-          "id": "697735c5-fdaa-4349-af5c-46c97899cbc2",
-          "type": "leave",
-          "createdAt": {
-            "day": 7,
-            "month": 2,
-            "year": 2023,
-            "hour": 19,
-            "min": 58
-          }
-        }
+        } 
       ]
     }
   ]

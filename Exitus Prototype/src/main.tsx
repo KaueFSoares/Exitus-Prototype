@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 // PAGES
 import App from './App'
 import Home from './pages/home/Home'
-import LogsPage from './pages/logs/LogsPage'
+import LogsPage from './pages/logs page/LogsPage'
 import RegisterPage from './pages/register/RegisterPage'
 
 //STYLES
