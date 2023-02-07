@@ -20,6 +20,7 @@
       "logs": [
         {
           "id": "log model",
+          "type": "leave",
           "createdAt": {
             "day": 1,
             "month": 1,
@@ -29,73 +30,47 @@
           }
         },
         {
-          "id": "7d1cfd10-c882-4ea7-82a9-78205923e76a",
+          "id": "bec26895-ee3e-4f0e-b1c1-ed8d96a4c015",
+          "type": "enter",
           "createdAt": {
             "day": 7,
             "month": 2,
             "year": 2023,
             "hour": 19,
-            "min": 35
+            "min": 57
           }
         },
         {
-          "id": "b6bfed50-7221-4b39-b849-344e56cbff7f",
+          "id": "a446aa8d-4401-4d61-81b8-c4ecd8ec176e",
+          "type": "leave",
           "createdAt": {
             "day": 7,
             "month": 2,
             "year": 2023,
             "hour": 19,
-            "min": 36
+            "min": 57
           }
         },
         {
-          "id": "1f65decf-8547-4704-ae6b-43e7900dcee9",
+          "id": "77593f44-2bfb-415a-ac6f-c08b93eaf99c",
+          "type": "enter",
           "createdAt": {
             "day": 7,
             "month": 2,
             "year": 2023,
             "hour": 19,
-            "min": 37
+            "min": 57
           }
         },
         {
-          "id": "7c1bfa3f-b9a2-4190-92ab-029609a49134",
+          "id": "697735c5-fdaa-4349-af5c-46c97899cbc2",
+          "type": "leave",
           "createdAt": {
             "day": 7,
             "month": 2,
             "year": 2023,
             "hour": 19,
-            "min": 37
-          }
-        },
-        {
-          "id": "9ee9743f-ece9-4398-8913-2109f6fdccdb",
-          "createdAt": {
-            "day": 7,
-            "month": 2,
-            "year": 2023,
-            "hour": 19,
-            "min": 40
-          }
-        },
-        {
-          "id": "59a0f31c-798f-4d69-90d9-0eb56e2e171c",
-          "createdAt": {
-            "day": 7,
-            "month": 2,
-            "year": 2023,
-            "hour": 19,
-            "min": 40
-          }
-        },
-        {
-          "id": "855fd624-4842-4945-8b22-07fa184a008c",
-          "createdAt": {
-            "day": 7,
-            "month": 2,
-            "year": 2023,
-            "hour": 19,
-            "min": 49
+            "min": 58
           }
         }
       ]

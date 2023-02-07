@@ -20,6 +20,7 @@ export type TDateForLeave = {
 
 export interface ILog {
     id: string,
+    type: "leave" | "enter",
     createdAt: TDate
 }
 

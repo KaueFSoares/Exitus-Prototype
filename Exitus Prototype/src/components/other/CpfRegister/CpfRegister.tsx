@@ -161,7 +161,7 @@ function CpfRegister() {
                     data.onSchool = !data.onSchool
 
                     let localLog: ILog = {
-                        id: uuidv4(), createdAt: {
+                        id: uuidv4(), type: "leave", createdAt: {
                             day: systemDate.getDate(),
                             month: systemDate.getMonth() + 1,
                             year: systemDate.getFullYear(),
@@ -203,7 +203,7 @@ function CpfRegister() {
                     data.onSchool = !data.onSchool
 
                     let localLog: ILog = {
-                        id: uuidv4(), createdAt: {
+                        id: uuidv4(), type: "enter", createdAt: {
                             day: systemDate.getDate(),
                             month: systemDate.getMonth() + 1,
                             year: systemDate.getFullYear(),
