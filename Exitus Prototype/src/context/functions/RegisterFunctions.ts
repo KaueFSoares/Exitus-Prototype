@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { ILog, IPerson, TDateForAge, TDateForLeave } from "../../types/types"
 
-//Function for the the person age - returns true for > 18 year and false for < 18 year
+//Function for check the person age - returns true for > 18 year and false for < 18 year
 export function checkAge(dateOfBirth: TDateForAge, systemDate: Date) {
     let nowDate: TDateForAge = {
         day: systemDate.getDate(),

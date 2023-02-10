@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { v4 as uuidv4 } from "uuid"
 
-import { ILog, IPerson, TDateForAge, TDateForLeave } from "../../../types/types"
+import { ILog, IPerson, TDateForLeave } from "../../../types/types"
 
 import { checkAge } from "../../../context/functions/RegisterFunctions"
 
@@ -9,7 +9,7 @@ import "./coderegister.sass"
 
 function CodeRegister() {
 
-	//Global variabel to storage the message and message type
+	//Global variabele to storage the message and message type
 	const [message, setMessage] = useState<string>("")
 	const [messageType, setMessageType] = useState<"success" | "fail">("success")
 	//-----------------------------------------------------------------------------------//

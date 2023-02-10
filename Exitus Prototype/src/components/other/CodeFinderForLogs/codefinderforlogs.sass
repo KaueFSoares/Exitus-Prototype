@@ -1,0 +1,68 @@
+@use "../../../styles/variables"
+@use "../../../styles/mixings"
+
+#code-finder-container
+    height: 23vh
+    width: 40%
+    background-color: variables.$light-green
+    border-radius: variables.$large-border-radius
+    @include mixings.center-center-row
+    padding: 1rem 2rem
+
+    #inputs-box
+        max-width: 70%
+        width: 70%
+        @include mixings.center-between-column
+        align-items: flex-start
+
+        .code-finder-input-box
+            display: flex
+            flex-direction: column
+            width: 100%
+            margin-bottom: .5rem
+
+            label
+                color: white
+                font-weight: bold
+                font-size: 1.3rem
+
+            input
+                font-size: 1.1rem
+                border: none
+                color: variables.$light-green
+                padding: .3rem .6rem
+                width: 90%
+                border-radius: variables.$small-border-radius
+
+                &:focus
+                    outline: none
+
+    #button-box
+        @include mixings.center-center-row
+        max-width: 30%
+        width: 30%
+
+        button
+            padding: .7rem
+            font-size: 1.8rem
+            line-height: 1.7rem
+            border-radius: variables.$medium-border-radius
+            border: none
+            font-weight: bold
+            color: variables.$light-green
+            cursor: pointer
+            transition: all 200ms ease
+            margin-top: 1rem
+            opacity: .75
+
+            &:hover
+                transform: scale(1.15)
+                opacity: 1
+                filter: brightness(1.15)
+
+            &:focus
+                outline: none
+                transform: scale(1.15)
+                opacity: 1
+                filter: brightness(1.1)
+            
