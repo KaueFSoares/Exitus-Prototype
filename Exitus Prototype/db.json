@@ -12,7 +12,7 @@
       },
       "email": "model@model.com",
       "city": "City model",
-      "permissionToLeaveEarly": false,
+      "permissionToLeaveEarly": true,
       "permissionToEnterOnOtherShift": true,
       "onSchool": false,
       "shift": "morning",
@@ -28,7 +28,139 @@
             "hour": 12,
             "min": 12
           }
-        } 
+        },
+        {
+          "id": "724d4bb4-e5a9-4ee5-bd58-c43b4603d34d",
+          "type": "enter",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 31
+          }
+        },
+        {
+          "id": "e43f05d3-07b5-4c31-b7d2-9f91631145db",
+          "type": "leave",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 33
+          }
+        },
+        {
+          "id": "cddba746-ccfc-4353-89e8-887d562db454",
+          "type": "enter",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 33
+          }
+        },
+        {
+          "id": "48f456f3-d47c-4f5a-bd1c-973602451164",
+          "type": "leave",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 33
+          }
+        },
+        {
+          "id": "79ed05d3-1062-43e0-a3f6-a0515634070b",
+          "type": "enter",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 34
+          }
+        },
+        {
+          "id": "454a6f40-b833-4db2-af5c-c951e6e3a1d2",
+          "type": "leave",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 34
+          }
+        },
+        {
+          "id": "37a94f7f-2889-4cc8-95f0-a817aa851f9c",
+          "type": "enter",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 34
+          }
+        },
+        {
+          "id": "d21984f6-d81c-4f86-9dc3-4ef9870669b5",
+          "type": "leave",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 34
+          }
+        },
+        {
+          "id": "36edf081-cd12-4d95-9a1c-20de11fb5bc8",
+          "type": "enter",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 34
+          }
+        },
+        {
+          "id": "4ed3c8a5-b583-40c5-802a-217e9fc4e51b",
+          "type": "leave",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 35
+          }
+        },
+        {
+          "id": "5f8e57fa-05da-4ea0-b8de-c9461fa99e07",
+          "type": "enter",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 36
+          }
+        },
+        {
+          "id": "ed27cbc0-b30b-4399-8d72-f7b9e594920b",
+          "type": "leave",
+          "createdAt": {
+            "day": 10,
+            "month": 2,
+            "year": 2023,
+            "hour": 10,
+            "min": 11
+          }
+        }
       ]
     }
   ]
