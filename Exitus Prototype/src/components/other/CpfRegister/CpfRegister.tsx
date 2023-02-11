@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { v4 as uuidv4 } from "uuid"
 
 import { ILog, IPerson, TDateForLeave } from "../../../types/types"
@@ -88,28 +88,10 @@ function CpfRegister() {
 
     //Function to find the code from the cpf typed
     async function findCode(cpf: string) {
-        const res = await fetch(`http://localhost:5001/person/`)
+        const res = await fetch(`http://localhost:5001/person?cpf=${cpf}`)
         const data: IPerson[] = await res.json()
 
-        if (data) {
-            let returnData = data.find(
-                (person: IPerson) => person.cpf === cpf
-            )
-
-            if (returnData) {
-                code = returnData.id
-                return returnData.id
-            } else {
-                setMessage(`Invalid CPF!`)
-                setMessageType("fail")
-                reloadPage()
-            }
-
-        } else {
-            setMessage(`Invalid CPF!`)
-            setMessageType("fail")
-            reloadPage()
-        }
+        return data[0].id;
     }
     //-----------------------------------------------------------------------------------//
 
