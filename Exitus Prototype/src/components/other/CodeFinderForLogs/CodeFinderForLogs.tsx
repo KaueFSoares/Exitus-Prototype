@@ -14,13 +14,18 @@ function CodeFinderForLogs() {
     function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        if(testCpfFormat(cpf) === true){
-            setMessage("Cpf válido")
-        } else {
-            setMessage("Cpf inválido")
+        if (testCpfFormat(cpf) === true && register !== "") {
+            setMessage("Sucesso")
+            setMessageType("success")
+        } else if (testCpfFormat(cpf) === false) {
+            setMessage("Cpf inválido!")
+            setMessageType("fail")
+        } else if (register === "") {
+            setMessage("Matrícula inválida!")
+            setMessageType("fail")
         }
-        setMessageType("success")
-        reloadPage()
+        
+        reloadHeader()
     }
     //-----------------------------------------------------------------------------------//
 
@@ -63,12 +68,14 @@ function CodeFinderForLogs() {
 
     //Function to reload the page and show a error message if the information is not valid
     const [showResultMessage, setShowResulteMessage] = useState<boolean>(false)
-    function reloadPage() {
+    function reloadHeader() {
 
         setShowResulteMessage(true)
 
         setTimeout(() => {
-            window.location.reload()
+            setCpf("")
+            setRegister("")
+            setShowResulteMessage(false)
         }, 5000)
 
     }
@@ -78,8 +85,10 @@ function CodeFinderForLogs() {
     return (
         <>
             {showResultMessage ? (
-                <div className={`result-box-code-finder ${["type-" + messageType]}`}>
-                    <p>{message}</p>
+                <div id="code-finder-container">
+                    <div className={`result-box-code-finder ${["type-" + messageType]}`}>
+                        <p>{message}</p>
+                    </div>
                 </div>
             ) : (
                 <form id='code-finder-container' onSubmit={handleOnSubmit}>
