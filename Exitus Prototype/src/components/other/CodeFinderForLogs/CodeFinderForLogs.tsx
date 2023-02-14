@@ -2,19 +2,29 @@ import React, { useContext, useState } from 'react'
 import "./codefinderforlogs.sass"
 import MyContext from '../../../context/global info/MyContext'
 
+//FUNCTIONS
+
+import testCpfFormat from './functions/testCpfFormat'
+
 function CodeFinderForLogs() {
 
     const { setCode }: any = useContext(MyContext)
 
+    //Submit function
     function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        testCpfFormat(cpf)
-        testDateFormat(date)
-
+        if(testCpfFormat(cpf) === true){
+            setMessage("Cpf válido")
+        } else {
+            setMessage("Cpf inválido")
+        }
         setMessageType("success")
         reloadPage()
     }
+    //-----------------------------------------------------------------------------------//
+
+
 
     //Formating the CPF
     const handleCpf = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,49 +47,9 @@ function CodeFinderForLogs() {
 
 
 
-    //Formating the date
-    const handleDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value
-        const formattedDate = formatDate(value)
-        setDate(formattedDate)
-    }
-
-    const formatDate = (value: string) => {
-        value = value.slice(0, 10)
-        if (value.length === 2 || value.length === 5) {
-            value = `${value}/`
-        }
-        return value
-    }
-    //-----------------------------------------------------------------------------------//
-
-
-
     //Getting the value from the input whenever it changes using the on change on the input element
     const [cpf, setCpf] = useState<string>("")
-    const [date, setDate] = useState<string>("")
-    //-----------------------------------------------------------------------------------//
-
-
-
-    //Testing the CPF
-    function testCpfFormat(cpfValue: string) {
-        cpfValue = cpfValue.replace(/\D/g, '')
-        if (cpfValue.length === 11) {
-            setMessage("cpf deu certo")
-        }
-    }
-    //-----------------------------------------------------------------------------------//
-
-
-
-    //Testing the date
-    function testDateFormat(dateValue: string) {
-        dateValue = dateValue.replace(/\D/g, '')
-        if(dateValue.length === 8){
-            setMessage(message + "\n data deu certo")
-        }
-    }
+    const [register, setRegister] = useState<string>("")
     //-----------------------------------------------------------------------------------//
 
 
@@ -132,17 +102,16 @@ function CodeFinderForLogs() {
 
                         <div className="code-finder-input-box">
                             <label htmlFor="" className="input-label">
-                                Data de nascimento
+                                Matrícula
                             </label>
                             <input
                                 type="text"
-                                name="nasc"
+                                name="registration"
                                 id="code-finder-nasc-input"
                                 className='input'
-                                placeholder='Digite sua data de nascimento'
-                                maxLength={10}
-                                onChange={handleDate}
-                                value={date}
+                                placeholder='Digite sua matrícula'
+                                maxLength={20}
+                                onChange={(e) => setRegister(e.target.value)}
                             />
                         </div>
                     </div>
