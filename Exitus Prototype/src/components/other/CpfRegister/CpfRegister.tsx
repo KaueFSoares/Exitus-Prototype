@@ -100,7 +100,7 @@ function CpfRegister() {
     //Function for loading person data from the database for cheking if it can go in or out of the school on the moment
     async function loadData() {
 
-        const id = await findCode(cpf)
+        const id = await findCode(cpf.replace(/\D/g, ''))
 
         const res = await fetch(`http://localhost:5001/person/${id}`)
         const data: IPerson = await res.json()
