@@ -29,7 +29,6 @@ export interface IPerson {
     id: string,
     name: string,
     cpf: string,
-    registration: string,
     siape: string,
     dateOfBirth: TDate,
     email: string,
