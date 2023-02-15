@@ -5,6 +5,7 @@ import MyContext from '../../../context/global info/MyContext'
 //FUNCTIONS
 
 import testCpfFormat from './functions/testCpfFormat'
+import loadData from './functions/loadData'
 
 function CodeFinderForLogs() {
 
@@ -15,8 +16,16 @@ function CodeFinderForLogs() {
         e.preventDefault()
 
         if (testCpfFormat(cpf) === true && register !== "") {
-            setMessage("Sucesso")
-            setMessageType("success")
+            loadData(cpf, register)
+            .then(res => {
+                setMessage(res.msg)
+                setMessageType(res.type)
+                setCode(res.code)
+            })
+            .catch(err => {
+                setMessage("Failed due to:" + err)
+                setMessageType(err)
+            })
         } else if (testCpfFormat(cpf) === false) {
             setMessage("Cpf inválido!")
             setMessageType("fail")
@@ -24,7 +33,7 @@ function CodeFinderForLogs() {
             setMessage("Matrícula inválida!")
             setMessageType("fail")
         }
-        
+
         reloadHeader()
     }
     //-----------------------------------------------------------------------------------//
