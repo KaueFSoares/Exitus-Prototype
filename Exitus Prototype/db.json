@@ -13,7 +13,7 @@
       },
       "email": "model@model.com",
       "city": "City model",
-      "permissionToLeaveEarly": true,
+      "permissionToLeaveEarly": false,
       "permissionToEnterOnOtherShift": true,
       "onSchool": false,
       "shift": "morning",
@@ -160,6 +160,28 @@
             "year": 2023,
             "hour": 10,
             "min": 11
+          }
+        },
+        {
+          "id": "af1c0524-0000-4497-87af-a173b700d8c8",
+          "type": "enter",
+          "createdAt": {
+            "day": 15,
+            "month": 2,
+            "year": 2023,
+            "hour": 7,
+            "min": 52
+          }
+        },
+        {
+          "id": "4d8d3507-ce06-4c16-87cd-bf0a4fbb4b15",
+          "type": "leave",
+          "createdAt": {
+            "day": 15,
+            "month": 2,
+            "year": 2023,
+            "hour": 7,
+            "min": 54
           }
         }
       ]

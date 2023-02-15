@@ -1,7 +1,7 @@
 import { IPerson } from "../../../../types/types"
 
 export default async function loadData(cpf: string, register: string): Promise<{ msg: string, type: "fail" | "success", code: string }> {
-    const cpfValue = cpf.replace(/\D/g, '')
+    const cpfValue = cpf.replace(/\D/g, '') 
 
     const res = await fetch(`http://localhost:5001/person?cpf=${cpfValue}`)
 
