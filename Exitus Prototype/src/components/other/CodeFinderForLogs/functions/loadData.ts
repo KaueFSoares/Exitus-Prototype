@@ -8,14 +8,12 @@ export default async function loadData(cpf: string, register: string): Promise<{
 
     const data: IPerson[] = await res.json()
 
-    console.log(data)
-
     if (data[0].cpf === cpfValue && data[0].siape === register){
         return {msg: "Sucesso", type: "success", code: data[0].id}
     } else if (data[0].cpf !== cpfValue){
         return {msg: "Cpf inválido!", type: "fail", code: ""}
     } else if (data[0].siape !== register){
-        return {msg: "Matrícula inválida!", type: "fail", code: ""}
+        return {msg: "Matrícula inválida123!", type: "fail", code: ""}
     }
 
     return {msg: "", type: "fail", code: ""}

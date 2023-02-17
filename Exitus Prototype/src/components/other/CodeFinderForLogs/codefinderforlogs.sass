@@ -2,12 +2,13 @@
 @use "../../../styles/mixings"
 
 #code-finder-container
-    height: 23vh
+    height: 17vh
     width: 40%
     background-color: variables.$light-green
     border-radius: variables.$large-border-radius
     @include mixings.center-center-row
-    padding: 1rem 2rem
+    padding: .5rem 2rem
+    margin-bottom: 1.5rem
 
     #inputs-box
         max-width: 70%
@@ -19,18 +20,18 @@
             display: flex
             flex-direction: column
             width: 100%
-            margin-bottom: .5rem
+            margin-bottom: .3rem
 
             label
                 color: white
                 font-weight: bold
-                font-size: 1.3rem
+                font-size: 1.2rem
 
             input
-                font-size: 1.1rem
+                font-size: 1rem
                 border: none
                 color: variables.$light-green
-                padding: .3rem .6rem
+                padding: .2rem .6rem
                 width: 90%
                 border-radius: variables.$small-border-radius
 

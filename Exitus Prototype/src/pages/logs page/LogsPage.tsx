@@ -3,6 +3,7 @@ import {useContext} from "react"
 import MyContext from '../../context/global info/MyContext'
 import "./logspage.sass"
 import CodeFinderForLogs from '../../components/other/CodeFinderForLogs/CodeFinderForLogs'
+import ShowLogs from '../../components/other/ShowLogs/ShowLogs'
 
 
 function LogsPage() {
@@ -13,9 +14,7 @@ function LogsPage() {
     <div id='logspage-container'>
       <CodeFinderForLogs />
 
-      { code !== "" && 
-      <p>{code}</p>
-      }
+      <ShowLogs />
     </div>
   )
 }

@@ -1,0 +1,56 @@
+@use "../../../styles/variables"
+@use "../../../styles/mixings"
+
+::-webkit-scrollbar
+    width: .7rem
+
+::-webkit-scrollbar-thumb
+    background: variables.$light-green
+    border-radius: variables.$large-border-radius
+
+
+.show-logs-container-not-logged
+    height: 48vh
+    width: 40%
+    background-color: variables.$light-green
+    border-radius: variables.$large-border-radius
+    @include mixings.center-center-row
+
+    #notlogged
+        background-color: variables.$white
+        color: variables.$light-green
+        padding: 1rem
+        font-weight: bold
+        border-radius: variables.$large-border-radius
+        text-align: center
+        font-size: 2.3rem
+
+.show-logs-container-logged
+    height: 48vh
+    width: 40%
+    background-color: variables.$light-green
+    border-radius: variables.$large-border-radius
+    @include mixings.center-center-column
+    justify-content: flex-start
+    padding: 1rem
+
+    #logs-header
+        background-color: variables.$white
+        width: 100%
+        text-align: justify
+        font-weight: bold
+        color: variables.$light-green
+        padding: .5rem 1rem
+        font-size: 1.2rem
+        border-radius: variables.$medium-border-radius
+        margin-bottom: 1rem
+
+    #logs-body
+        background-color: variables.$white
+        width: 100%
+        border-radius: variables.$medium-border-radius
+        min-height: 4rem
+        padding: .5rem
+        overflow-y: scroll
+        padding-right: 1rem
+        

@@ -17,15 +17,15 @@ function CodeFinderForLogs() {
 
         if (testCpfFormat(cpf) === true && register !== "") {
             loadData(cpf, register)
-            .then(res => {
-                setMessage(res.msg)
-                setMessageType(res.type)
-                setCode(res.code)
-            })
-            .catch(err => {
-                setMessage("Failed due to:" + err)
-                setMessageType(err)
-            })
+                .then(res => {
+                    setMessage(res.msg)
+                    setMessageType(res.type)
+                    setCode(res.code)
+                })
+                .catch(err => {
+                    setMessage("Failed due to:" + err)
+                    setMessageType(err)
+                })
         } else if (testCpfFormat(cpf) === false) {
             setMessage("Cpf inválido!")
             setMessageType("fail")
