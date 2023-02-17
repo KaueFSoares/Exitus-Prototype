@@ -1,0 +1,59 @@
+@use "../../../styles/variables"
+@use "../../../styles/mixings"
+
+#login-form-container
+    height: 50vh
+    width: 50vh
+    background-color: variables.$light-green
+    border-radius: variables.$extra-large-border-radius
+    @include mixings.center-center-column
+
+    #login-form
+        background-color: variables.$white
+        border-radius: variables.$large-border-radius
+        width: 80%
+        height: 80%
+        @include mixings.center-center-column
+
+        .input-box
+            display: flex
+            flex-direction: column
+            margin-bottom: 1rem
+            padding: 0 2rem
+            width: 100%
+
+            label
+                font-weight: bold
+                color: variables.$light-green
+                font-size: 1.3rem
+
+            input
+                padding: .5rem 1rem
+                width: 100%
+                border: 2px solid variables.$light-green
+                color: variables.$light-green
+                border-radius: variables.$small-border-radius
+
+            ::placeholder
+                opacity: .7    
+        
+        #submit-box
+            width: 100%
+            @include mixings.center-center-row
+            margin-top: 1rem
+
+            #submit-button
+                background-color: variables.$white
+                border: 4px solid variables.$light-green
+                border-radius: variables.$large-border-radius
+                padding: .4rem 1rem
+                font-weight: bold
+                color: variables.$light-green
+                font-size: 1.6rem
+                transition: all 200ms ease
+                cursor: pointer
+
+                &:hover
+                    background-color: variables.$light-green
+                    color: variables.$white
+                    transform: scale(1.1)

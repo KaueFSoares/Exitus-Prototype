@@ -13,11 +13,12 @@ import Footer from "./components/layout/footer/Footer"
 function App() {
 
   const [code, setCode] = useState<string>()
+  const [logged, setLogged] = useState<boolean>(false)
 
   return (
     <div className="App">
       <Navbar />
-      <MyContext.Provider value={{code, setCode}}>
+      <MyContext.Provider value={{code, setCode, logged, setLogged}}>
         <Outlet />
       </MyContext.Provider>
       <Footer />
