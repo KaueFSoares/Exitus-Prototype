@@ -12,25 +12,14 @@
       },
       "email": "model@model.com",
       "city": "City model",
-      "permissionToLeaveEarly": false,
+      "permissionToLeaveEarly": true,
       "permissionToEnterOnOtherShift": true,
-      "onSchool": false,
+      "onSchool": true,
       "shift": "morning",
       "qrCode": "model QR code",
       "logs": [
         {
           "id": "log model",
-          "type": "leave",
-          "createdAt": {
-            "day": 1,
-            "month": 1,
-            "year": 1012,
-            "hour": 12,
-            "min": 12
-          }
-        },
-        {
-          "id": "724d4bb4-e5a9-4ee5-bd58-c43b4603d34d",
           "type": "enter",
           "createdAt": {
             "day": 10,
@@ -181,6 +170,39 @@
             "year": 2023,
             "hour": 7,
             "min": 54
+          }
+        },
+        {
+          "id": "e6c05185-1ca4-4e28-8de6-06590ee1536a",
+          "type": "enter",
+          "createdAt": {
+            "day": 17,
+            "month": 2,
+            "year": 2023,
+            "hour": 8,
+            "min": 6
+          }
+        },
+        {
+          "id": "f778f418-e3c8-41f8-aa0f-27879cc2432f",
+          "type": "leave",
+          "createdAt": {
+            "day": 17,
+            "month": 2,
+            "year": 2023,
+            "hour": 8,
+            "min": 6
+          }
+        },
+        {
+          "id": "e51322b7-d7bd-4b69-8c7b-c517b8d561fb",
+          "type": "enter",
+          "createdAt": {
+            "day": 17,
+            "month": 2,
+            "year": 2023,
+            "hour": 8,
+            "min": 6
           }
         }
       ]

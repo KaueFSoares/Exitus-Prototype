@@ -45,13 +45,13 @@ function ShowLogs() {
                     <header id="logs-header">
                         <span id="name">{name}</span>
                     </header>
-                    <section id="logs-body">
+                    <ul id="logs-body">
                         {
                             logs?.map((log, index) => (
-                                <div key={log.id}>oi</div>
+                                <li key={log.id} className={`item item-${log.type}`}><div>{log.type}</div> <div></div></li>
                             ))
                         }
-                    </section>
+                    </ul>
                 </div>
             ) : (
                 <div className="show-logs-container-not-logged">

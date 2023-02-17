@@ -5,7 +5,7 @@
     width: .7rem
 
 ::-webkit-scrollbar-thumb
-    background: variables.$light-green
+    background: lightgray
     border-radius: variables.$large-border-radius
 
 
@@ -53,4 +53,17 @@
         padding: .5rem
         overflow-y: scroll
         padding-right: 1rem
+        font-weight: bold
+        color: variables.$white
+
+        .item
+            border-radius: variables.$medium-border-radius
+            margin-bottom: .5rem
+            padding: .5rem 1rem
+
+        .item-enter
+            background-color: rgba(variables.$light-green, .8)
+        
+        .item-leave
+            background-color: rgba(variables.$light-green, .5)
         
