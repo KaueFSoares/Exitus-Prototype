@@ -14,7 +14,7 @@
       "city": "City model",
       "permissionToLeaveEarly": true,
       "permissionToEnterOnOtherShift": true,
-      "onSchool": true,
+      "onSchool": false,
       "shift": "morning",
       "qrCode": "model QR code",
       "logs": [
@@ -23,7 +23,7 @@
           "type": "enter",
           "createdAt": {
             "day": 10,
-            "month": 2,
+            "month": 12,
             "year": 2023,
             "hour": 9,
             "min": 31
@@ -203,6 +203,39 @@
             "year": 2023,
             "hour": 8,
             "min": 6
+          }
+        },
+        {
+          "id": "07650bc6-ea31-45ff-a5e6-c21f99c33209",
+          "type": "leave",
+          "createdAt": {
+            "day": 17,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 39
+          }
+        },
+        {
+          "id": "ed37475e-21ce-42d8-b8b4-13b1d04b32ac",
+          "type": "enter",
+          "createdAt": {
+            "day": 17,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 40
+          }
+        },
+        {
+          "id": "69d0c64b-003a-435a-9817-978186c46238",
+          "type": "leave",
+          "createdAt": {
+            "day": 17,
+            "month": 2,
+            "year": 2023,
+            "hour": 9,
+            "min": 40
           }
         }
       ]

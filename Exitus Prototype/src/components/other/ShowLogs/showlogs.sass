@@ -8,7 +8,6 @@
     background: lightgray
     border-radius: variables.$large-border-radius
 
-
 .show-logs-container-not-logged
     height: 48vh
     width: 40%
@@ -52,7 +51,6 @@
         min-height: 4rem
         padding: .5rem
         overflow-y: scroll
-        padding-right: 1rem
         font-weight: bold
         color: variables.$white
 
@@ -60,10 +58,27 @@
             border-radius: variables.$medium-border-radius
             margin-bottom: .5rem
             padding: .5rem 1rem
+            @include mixings.center-between-row
+
+            .log-type
+                width: 30%
+
+            .log-date-box
+                @include mixings.center-between-row
+                width: 50%
+
+                .logday
+                    width: 50%
+                    
+                    p
+                        text-align: left
+
+                .loghour
+                    width: 35%
+
 
         .item-enter
-            background-color: rgba(variables.$light-green, .8)
-        
+            background-color: rgba(variables.$light-green, .9)
+
         .item-leave
             background-color: rgba(variables.$light-green, .5)
-        

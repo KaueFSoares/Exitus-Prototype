@@ -48,7 +48,17 @@ function ShowLogs() {
                     <ul id="logs-body">
                         {
                             logs?.map((log, index) => (
-                                <li key={log.id} className={`item item-${log.type}`}><div>{log.type}</div> <div></div></li>
+                                <li key={log.id} className={`item item-${log.type}`}>
+                                    <div className='log-type'>{log.type.toUpperCase()}</div>
+                                    <div className='log-date-box'>
+                                        <div className="logday">
+                                            <p>Date: {log.createdAt.day}/{log.createdAt.month}/{log.createdAt.year}</p>
+                                        </div>
+                                        <div className="loghour">
+                                            <p>Hour: {log.createdAt.hour}:{log.createdAt.min}</p>
+                                        </div>
+                                    </div>
+                                </li>
                             ))
                         }
                     </ul>
